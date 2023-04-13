@@ -1,0 +1,38 @@
+{% extends 'base.twig' %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="../../public/css/dashboard.css">
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script src="../../public/js/jquery-1.12.4.js"></script>
+    <script src="../../public/js/jquery-ui.js"></script>
+    <script src="../../public/js/jquery.maskedinput.min.js"></script>
+    <script src="../../public/js/dashboard.js"></script>
+{% endblock %}
+
+{% block content %}
+    <div class="dashboard">
+        <div class="dashboard-title col-12">Новость: {{ new['title'] }}</div>
+        <div class="row new-row col-12">
+            <div class="item-order col-2"></div>
+            <div class="item-body col-8">
+                <div class="row">
+                    <div class="item-body-title col-8">{{ new['description'] }}</div>
+                    <div class="item-body-date col-4">{{ new['create_at'] }}</div>
+                </div>
+                <div class="row">
+                    <div class="item-body-description col-12">{{ new['value'] }}</div>
+                </div>
+                <div class="row">
+                    <div class="item-body-author col-12">
+                        [Автор: {{ new['author'] }}]
+                    </div>
+                </div>
+            </div>
+            <div class="item-button col-2"></div>
+        </div>
+    </div>
+{% endblock %}

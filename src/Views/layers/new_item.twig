@@ -1,0 +1,17 @@
+<div class="item-order col-2">
+    {{ loop.index }}
+</div>
+<div class="item-body col-8">
+    <div class="row">
+        <div class="item-body-title col-8">{{ new['title'] }}</div>
+        <div class="item-body-date col-4">{{ new['create_at'] }}</div>
+    </div>
+    <div class="row">
+        <div class="item-body-description col-12">{{ new['description'] }}</div>
+    </div>
+</div>
+<div class="item-button col-2">
+    <a href="/show/new/{{ new['id'] }}" class="show-button-item">
+        <i class="fas fa-newspaper"></i>
+    </a>
+</div>

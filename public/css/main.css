@@ -1,0 +1,148 @@
+body {
+    display: flex;
+    font-family: "JetBrains Mono";
+    font-size: 16px;
+}
+.col-12 {
+    width: 100%;
+}
+.col-11 {
+    width: 91.3%;
+}
+.col-10 {
+    width: 83%;
+}
+.col-9 {
+    width: 74.7%;
+}
+.col-8 {
+    width: 66.4%;
+}
+.col-7 {
+    width: 58.1%;
+}
+.col-6 {
+    width: 49.8%;
+}
+.col-5 {
+    width: 41.5%;
+}
+.col-4 {
+    width: 33.2%;
+}
+.col-3 {
+    width: 24.9%;
+}
+.col-2 {
+    width: 16.6%;
+}
+.col-1 {
+    width: 8.3%;
+}
+.container {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+}
+.container .main-content {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+.container .container-logo {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+.container .container-logo .logo {
+    font-size: 34px;
+    text-align: left;
+    height: 50px;
+    margin: 10px;
+}
+div.row {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin: 10px 0;
+}
+
+.container .main-content .container-content {
+    display: flex;
+    width: 100%;
+}
+
+.container .main-content .container-content .content {
+    font-size: 20px;
+    text-align: justify;
+    margin: 10px;
+}
+
+.container .main-content .container-footer {
+    display: flex;
+    justify-content: center;
+    height: 40px;
+    font-size: 20px;
+    font-style: italic;
+    color: #565353FF;
+}
+
+.error {
+    background: #FCB7BDFF;
+    border: 1px solid #FF0000;
+}
+
+.item-order {
+    text-align: center;
+    padding-top: 10px;
+    font-size: 16px;
+    color: dimgrey;
+}
+
+.item-body {
+    text-align: center;
+}
+
+.item-button {
+    text-align: center;
+    padding-top: 10px;
+}
+
+.item-body-title {
+    text-align: left;
+    font-size: 20px;
+    font-weight: 600;
+    color: dimgrey;
+}
+
+.item-body-description {
+    text-align: left;
+    font-size: 16px;
+    color: dimgrey;
+}
+
+.item-body-date {
+    text-align: center;
+    font-size: 16px;
+    color: dimgrey;
+}
+
+.item-body-author {
+    text-align: right;
+    font-size: 16px;
+    color: dimgrey;
+}
+
+a.show-button-item {
+    color: dimgrey;
+}
+
+a.show-button-item:hover {
+    color: lightgreen
+}
+
+.new-row {
+    border-bottom: 1px solid #cccccc;
+}
+

@@ -1,0 +1,56 @@
+{% extends 'base.twig' %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="../../public/css/dashboard.css">
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script src="../../public/js/jquery-1.12.4.js"></script>
+    <script src="../../public/js/jquery-ui.js"></script>
+    <script src="../../public/js/jquery.maskedinput.min.js"></script>
+    <script src="../../public/js/dashboard.js"></script>
+{% endblock %}
+
+{% block content %}
+    <div class="dashboard">
+        <div class="dashboard-title col-12">Общие сведения</div>
+
+        <div class="dashboard-table col-12">
+            <div class="contacts col-12">
+                <div class="title-block">Клиенты</div>
+                <div class="active-contacts">
+                    <div class="col-6 label">активные</div>
+                    <div class="col-6 value">{{ active_clients }}</div>
+                </div>
+                <div class="archive-contacts">
+                    <div class="col-6 label">архивные</div>
+                    <div class="col-6 value">{{ archive_clients }}</div>
+                </div>
+            </div>
+
+            <div class="balances col-12">
+                <div class="title-block">На балансе</div>
+                {% for balance_item in balances %}
+                    <div class="balance-item col-12">
+                        <div class="col-6 label">{{ balance_item['currency'] }}</div>
+                        <div class="col-6 value">{{ balance_item['current_value'] }}</div>
+                    </div>
+                {% endfor %}
+            </div>
+
+            <div class="lessons col-12">
+                <div class="title-block">Занятия</div>
+                <div class="lesson-item col-12">
+                    <div class="col-6 label">Проведены</div>
+                    <div class="col-6 value">{{ lessons['finished_lessons'] }}</div>
+                </div>
+                <div class="lesson-item col-12">
+                    <div class="col-6 label">Запланированы</div>
+                    <div class="col-6 value">{{ lessons['planned_lessons'] }}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

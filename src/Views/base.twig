@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+{% block head %}
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Тестовое задание</title>
+{% endblock %}
+{% block stylesheets %}
+    <link href="../../public/css/fontawesome/css/fontawesome.css" rel="stylesheet">
+    <link href="../../public/css/fontawesome/css/solid.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../public/css/main.css">
+    <link rel="stylesheet" href="../../public/css/menu.css">
+{% endblock %}
+{#    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>#}
+
+{% block javascripts %}
+    <script type="text/javascript" src="../../public/js/jquery.min.js"></script>
+{% endblock %}
+
+    <script type="text/javascript" src="../../public/js/main.js"></script>
+</head>
+<body>
+{% block body %}
+    <div class="container">
+        <div class="left-side"></div>
+        <div class="main-content">
+            <div class="container-logo">
+                <div class="col-2"></div>
+                <div class="logo col-8">{{ include('logo/index.twig') }}</div>
+                <div class="col-2"></div>
+            </div>
+            <div class="container-menu">
+                <div class="col-2"></div>
+                <div class="menu col-8">{{ include('menu/index.twig') }}</div>
+                <div class="col-2"></div>
+            </div>
+            <div class="container-content">
+                <div class="col-2"></div>
+                <div class="content col-8">{% block content %}{% endblock %}</div>
+                <div class="col-2"></div>
+            </div>
+            <div class="container-footer">{{ include('footer/index.twig') }}</div>
+        </div>
+        <div class="right-side"></div>
+    </div>
+{% endblock %}
+</body>
+</html>

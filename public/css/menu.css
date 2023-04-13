@@ -1,0 +1,27 @@
+.container .main-content .container-menu {
+    display: flex;
+    width: 100%;
+}
+.container .main-content .container-menu .menu {
+    display: flex;
+    text-align: left;
+}
+.container .main-content .container-menu .menu a {
+    text-decoration: none;
+    color: #000000;
+}
+.container .main-content .container-menu .menu a .menu-item {
+    border: 1px solid #cccccc;
+    background: #eeeeee;
+    width: 160px;
+    padding: 10px;
+    margin: 10px;
+    text-align: center;
+    font-size: 20px;
+}
+.container .main-content .container-menu .menu .menu-item:hover {
+    background: lightgreen;
+}
+.container .main-content .container-menu .menu .menu-item.active {
+    background: lightgreen;
+}
