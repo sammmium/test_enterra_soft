@@ -2,7 +2,9 @@
 
 return [
 	'app_name' => 'Enterra News',
+
     'owner' => 'Евгений Самойлов',
+	
     'developer' => 'sammmium.dev@gmail.com',
 
 	'sections' => [
@@ -12,8 +14,11 @@ return [
 
 	'db' => [
 		'name' => 'enterra',
+		//если БД развернута в контейнере
 		'host' => 'mysql-5.7',
-		'user' => 'root',
-		'password' => 'secret'
+		//если БД развернута на локальной машине 
+		//'host' => '127.0.0.1',
+		'user' => 'root',//заменить на свои данные
+		'password' => 'secret'//заменить на свои данные
 	]
 ];

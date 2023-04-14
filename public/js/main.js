@@ -9,15 +9,4 @@ $(document).ready(function() {
             item.classList.add('active');
         }
     });
-
-    /* Сохранение нового контакта */
-    $('a.new-contact-save').on('click', function () {
-        $('form[name="new_contact"]').submit();
-    });
-
-    /* Обновление контакта */
-    $('a.contact-update').on('click', function () {
-        $('form[name="update_contact"]').submit();
-    });
-
 });

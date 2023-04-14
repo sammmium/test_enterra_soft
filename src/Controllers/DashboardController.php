@@ -49,16 +49,13 @@ class DashboardController extends MainController
 		}
 
 		if ($storedId) {
-			// достать данные из БД
 			$newsModel = new News();
 			$input['news'] = $newsModel->getNews($storedId);
 
-			// отрисовать форму редактирования
 			header('Location: /admin');
 			exit;
 		}
 		
-		// несохраненные данные впихнуть в форму редактирования
 		return $this->getContent($data);
 	}
 

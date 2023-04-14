@@ -23,11 +23,6 @@ class News extends Base
 
     use Helper;
 
-    public function createNews()
-    {
-        
-    }
-
     public function hasNews(array $data)
     {
         $filter = $data;
