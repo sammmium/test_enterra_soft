@@ -30,21 +30,29 @@
 
 1. Скопировать репозиторий
 
-    git clone https://github.com/sammmium/test_enterra_soft.git
+```
+git clone https://github.com/sammmium/test_enterra_soft.git
+```
 
 2. В корневой директории выполнить команду
 
-    composer install
+```
+composer install
+```
 
 3. Распаковать архив `fontawesome-free-5.15.4-web.zip` в директории `/public/css/` после чего распакованную директорию переименовать в `fontawesome`
 
 4. Запустить восстановление базы данных из файла `dump.sql` в корневой директории
 
-    mysql --user=USER --password=PASSWORD --force < dump.sql
+```
+mysql --user=USER --password=PASSWORD --force < dump.sql
+```
 
 или в `docker` контейнере
 
-    docker exec -i mysql-5.7 mysql --user=USER --password=PASSWORD --force < dump.sql
+```
+docker exec -i mysql-5.7 mysql --user=USER --password=PASSWORD --force < dump.sql
+```
 
 где:
 ```
