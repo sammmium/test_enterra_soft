@@ -37,8 +37,6 @@ class News extends Base
 			where " . $this->getPreparedConditions($filter) . " 
             limit 1;";
 
-            // var_dump((bool)$this->get($query)['cnt']);exit;
-
         return (bool)$this->get($query)['cnt'];
     }
 
@@ -63,14 +61,24 @@ class News extends Base
 		return $this->set($query);
     }
 
-    public function editNews(int $id)
+    public function updateNews(array $data)
     {
-        
+        $values = [];
+		foreach ($data as $key => $value) {
+			if ($this->isAvailableColumn($key)) {
+				$values[] = "$key = '" . $value . "'";
+			}
+		}
+		$id = $data['id'];
+		$values[] = "update_at = '" . date('Y-m-d') . "'";
+		$query = "update " . $this->table . " set " . implode(', ', $values) . " where id = '$id';";
+        $this->update($query);
     }
 
     public function deleteNews(int $id)
     {
-        
+        $query = "delete from " . $this->table . " where id = '" . $id . "';";
+        $this->delete($query);
     }
 
     /**

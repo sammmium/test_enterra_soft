@@ -35,7 +35,7 @@ return [
 	'/admin/news/save' => [
 		'controller' => 'DashboardController',
 		'action' => 'save',
-		'view' => 'dashboard/edit.twig',
+		'view' => 'dashboard/create.twig',
 		'selected_menu_item' => 'admin'
 	],
 
@@ -56,7 +56,7 @@ return [
 	'/admin/news/update' => [
 		'controller' => 'DashboardController',
 		'action' => 'update',
-		'view' => 'dashboard/update.twig',
+		'view' => 'dashboard/index.twig',
 		'selected_menu_item' => 'admin'
 	],
 

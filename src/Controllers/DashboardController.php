@@ -54,7 +54,8 @@ class DashboardController extends MainController
 			$input['news'] = $newsModel->getNews($storedId);
 
 			// отрисовать форму редактирования
-			return $this->getContent($input);
+			header('Location: /admin');
+			exit;
 		}
 		
 		// несохраненные данные впихнуть в форму редактирования
@@ -79,12 +80,32 @@ class DashboardController extends MainController
 
 	public function update()
 	{
+		$rules = [
+			'id' => ['type' => 'numeric', 'required' => true],
+			'title' => ['type' => 'text', 'required' => true],
+			'description' => ['type' => 'text', 'required' => true],
+			'value' => ['type' => 'text', 'required' => true]
+		];
+
 		$data = $_POST;
-		var_dump($data);exit;
+		
+		$input['news'] = $data;
+
+		if ($this->validate($data, $rules)) {
+			$newsModel = new News();
+			$newsModel->updateNews($data);
+		}
+
+		header('Location: /admin');
+		exit;
 	}
 
 	public function delete(int $id)
 	{
-		var_dump('delete #' . $id);exit;
+		$newsModel = new News();
+		$newsModel->deleteNews($id);
+
+		header('Location: /admin');
+		exit;
 	}
 }
