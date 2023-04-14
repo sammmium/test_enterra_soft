@@ -2,16 +2,10 @@
 
 namespace src\Controllers;
 
-use src\models\Balances;
-use src\models\Contacts;
-use src\models\Schedules;
+use src\Models\News;
 
 require_once 'MainController.php';
-
-//require_once __DIR__ .'/../models/Contacts.php';
-require_once __DIR__ .'/../models/Schedules.php';
-require_once __DIR__ .'/../models/Balances.php';
-require_once __DIR__ .'/../models/Currencies.php';
+require_once __DIR__ .'/../Models/News.php';
 
 class DashboardController extends MainController
 {
@@ -24,32 +18,73 @@ class DashboardController extends MainController
 
 	public function index()
 	{
-		$content = [];
-
-		/*
-		 * На дашборд нужно вывести аналитическую информацию в виде таблицы (ключ - значение)
-		 *
-		 * Количество клиентов:
-		 * 		активных: 10
-		 * 		архивных: 141
-		 * На балансе:
-		 * 		20000 BYN
-		 * 		15000 USD
-		 * 		80000 RUB
-		 * Проведено занятий: 180
-		 * Запланировано занятий: 2640
-		 */
-		$contacts_model = new Contacts();
-		$content += $contacts_model->getDashboardData();
-
-		$balances_model = new Balances();
-		$content += $balances_model->getDashboardData();
-
-		$schedules_model = new Schedules();
-		$content += $schedules_model->getDashboardData();
-
-//		var_dump($content);exit;
+		$news = new News();
+		$content['news'] = $news->listNews();
 
 		return $this->getContent($content);
+	}
+
+	public function create()
+	{
+		return $this->getContent();
+	}
+
+	public function save()
+	{
+		$rules = [
+			'title' => ['type' => 'text', 'required' => true],
+			'description' => ['type' => 'text', 'required' => true],
+			'value' => ['type' => 'text', 'required' => true]
+		];
+
+		$data = $_POST;
+		$storedId = null;
+		$input['news'] = $data;
+
+		if ($this->validate($data, $rules)) {
+			$newsModel = new News();
+			if (!$newsModel->hasNews($data)) {
+				$storedId = $newsModel->storeNews($data);
+			}
+		}
+
+		if ($storedId) {
+			// достать данные из БД
+			$newsModel = new News();
+			$input['news'] = $newsModel->getNews($storedId);
+
+			// отрисовать форму редактирования
+			return $this->getContent($input);
+		}
+		
+		// несохраненные данные впихнуть в форму редактирования
+		return $this->getContent($data);
+	}
+
+	public function edit(int $id)
+	{
+		$news = new News();
+		$content['news'] = $news->getNews($id);
+
+		return $this->getContent($content);
+	}
+
+	public function show(int $id)
+	{
+		$news = new News();
+		$content['news'] = $news->getNews($id);
+
+		return $this->getContent($content);
+	}
+
+	public function update()
+	{
+		$data = $_POST;
+		var_dump($data);exit;
+	}
+
+	public function delete(int $id)
+	{
+		var_dump('delete #' . $id);exit;
 	}
 }

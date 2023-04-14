@@ -1,5 +1,3 @@
-
-
 $(document).ready(function() {
     /* Меню */
     $('div.menu-item').each(function (index, item) {

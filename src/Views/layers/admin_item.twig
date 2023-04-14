@@ -11,7 +11,13 @@
     </div>
 </div>
 <div class="item-button col-2">
-    <a href="/show/new/{{ new['id'] }}" class="button">
+    <a href="/admin/show/news/{{ new['id'] }}" class="button">
         <i class="fas fa-newspaper"></i>
+    </a>
+    <a href="/admin/edit/news/{{ new['id'] }}" class="button">
+        <i class="fas fa-edit"></i>
+    </a>
+    <a href="/admin/delete/news/{{ new['id'] }}" class="button delete-button">
+        <i class="fas fa-trash"></i>
     </a>
 </div>

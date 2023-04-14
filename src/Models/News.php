@@ -28,9 +28,39 @@ class News extends Base
         
     }
 
-    public function storeNews()
+    public function hasNews(array $data)
     {
-        
+        $filter = $data;
+
+        $query = "select count(n.id) as cnt
+            from " . $this->table . " as n
+			where " . $this->getPreparedConditions($filter) . " 
+            limit 1;";
+
+            // var_dump((bool)$this->get($query)['cnt']);exit;
+
+        return (bool)$this->get($query)['cnt'];
+    }
+
+    public function storeNews(array $data)
+    {
+        $columns = [];
+		$values = [];
+		foreach ($data as $key => $value) {
+			if ($this->isAvailableColumn($key)) {
+				$columns[] = $key;
+				$values[] = $value;
+			}
+		}
+		$columns[] = 'author_id';
+		$values[] = 1;
+		$columns[] = 'create_at';
+		$values[] = date('Y-m-d');
+		$columns[] = 'update_at';
+		$values[] = date('Y-m-d');
+		$query = "insert into " . $this->table . "(" . implode(', ', $columns) . ")  values('" . implode("', '", $values) . "');";
+
+		return $this->set($query);
     }
 
     public function editNews(int $id)
@@ -43,6 +73,10 @@ class News extends Base
         
     }
 
+    /**
+     * Получение массива данных обо всех новостях.
+     * Хорошо бы прикрутить пагинатор...
+     */
     public function listNews()
     {
         $result = [];
@@ -73,6 +107,9 @@ class News extends Base
         return $result;
     }
 
+    /**
+     * Получение массива данных об одной выбранной новости
+     */
     public function getNews(int $id)
     {
         $result = [];

@@ -1,3 +1,5 @@
+{# dashboard/index.twig #}
+
 {% extends 'base.twig' %}
 
 {% block stylesheets %}
@@ -7,50 +9,38 @@
 
 {% block javascripts %}
     {{ parent() }}
-    <script src="../../public/js/jquery-1.12.4.js"></script>
-    <script src="../../public/js/jquery-ui.js"></script>
-    <script src="../../public/js/jquery.maskedinput.min.js"></script>
-    <script src="../../public/js/dashboard.js"></script>
+    <script type="text/javascript" src="../../public/js/dashboard.js"></script>
 {% endblock %}
 
 {% block content %}
     <div class="dashboard">
-        <div class="dashboard-title col-12">Общие сведения</div>
+        <div class="dashboard-title col-12">Список новостей</div>
 
-        <div class="dashboard-table col-12">
-            <div class="contacts col-12">
-                <div class="title-block">Клиенты</div>
-                <div class="active-contacts">
-                    <div class="col-6 label">активные</div>
-                    <div class="col-6 value">{{ active_clients }}</div>
-                </div>
-                <div class="archive-contacts">
-                    <div class="col-6 label">архивные</div>
-                    <div class="col-6 value">{{ archive_clients }}</div>
-                </div>
-            </div>
-
-            <div class="balances col-12">
-                <div class="title-block">На балансе</div>
-                {% for balance_item in balances %}
-                    <div class="balance-item col-12">
-                        <div class="col-6 label">{{ balance_item['currency'] }}</div>
-                        <div class="col-6 value">{{ balance_item['current_value'] }}</div>
+        <div class="dashboard-row col-12">
+            <a href="/admin/news/create" class="button">
+                <div class="button-row">
+                    <div class="button-image">
+                        <i class="fas fa-plus"></i>
                     </div>
-                {% endfor %}
-            </div>
-
-            <div class="lessons col-12">
-                <div class="title-block">Занятия</div>
-                <div class="lesson-item col-12">
-                    <div class="col-6 label">Проведены</div>
-                    <div class="col-6 value">{{ lessons['finished_lessons'] }}</div>
+                    <div class="button-text">
+                        Добавить
+                    </div>
                 </div>
-                <div class="lesson-item col-12">
-                    <div class="col-6 label">Запланированы</div>
-                    <div class="col-6 value">{{ lessons['planned_lessons'] }}</div>
-                </div>
-            </div>
+            </a>
         </div>
+
+        {% if news|length > 0 %}
+            {% for new in news %}
+                <div class="dashboard-row col-12">
+                    {{ include('layers/admin_item.twig') }}
+                </div>
+            {% endfor %}
+        {% else %}
+            <div class="dashboard-row col-12">
+                <div class="new-empty">
+                    Новостей нет
+                </div>
+            </div>
+        {% endif %}
     </div>
 {% endblock %}

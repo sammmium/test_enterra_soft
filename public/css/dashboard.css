@@ -8,7 +8,7 @@
     font-size: 26px;
     font-style: italic;
     font-weight: 700;
-    border-bottom: 1px solid #cccccc;
+    border-bottom: 1px solid #696969;
     line-height: 45px;
     padding: 10px 0;
 }
@@ -17,50 +17,29 @@
     text-align: center;
 }
 
-
-.container .main-content .container-content .content .dashboard .dashboard-table .contacts,
-.container .main-content .container-content .content .dashboard .dashboard-table .balances,
-.container .main-content .container-content .content .dashboard .dashboard-table .lessons {
+.dashboard-row {
     display: flex;
-    justify-content: center;
-    text-align: center;
-    flex-direction: column;
-    border-bottom: 1px solid #cccccc;
-    padding: 10px 0;
+    border-bottom: 1px solid #696969;
+    padding: 5px;
+    font-size: 20px;
 }
 
-.container .main-content .container-content .content .dashboard .dashboard-table .contacts .title-block,
-.container .main-content .container-content .content .dashboard .dashboard-table .balances .title-block,
-.container .main-content .container-content .content .dashboard .dashboard-table .lessons .title-block {
-    font-size: 22px;
-    font-style: italic;
-    font-weight: 700;
-    text-align: center;
-    padding: 0 0 10px 0;
-}
-
-.container .main-content .container-content .content .dashboard .dashboard-table .contacts .archive-contacts,
-.container .main-content .container-content .content .dashboard .dashboard-table .contacts .active-contacts,
-.container .main-content .container-content .content .dashboard .dashboard-table .balances .balance-item,
-.container .main-content .container-content .content .dashboard .dashboard-table .lessons .lesson-item {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-}
-
-.container .main-content .container-content .content .dashboard .dashboard-table .contacts .active-contacts .label,
-.container .main-content .container-content .content .dashboard .dashboard-table .contacts .archive-contacts .label,
-.container .main-content .container-content .content .dashboard .dashboard-table .balances .balance-item .label,
-.container .main-content .container-content .content .dashboard .dashboard-table .lessons .lesson-item .label {
+.dashboard-row .label {
+    padding-top: 2px;
+    margin-right: 10px;
     text-align: right;
-    padding-right: 5px;
-    color: #cccccc;
 }
 
-.container .main-content .container-content .content .dashboard .dashboard-table .contacts .active-contacts .value,
-.container .main-content .container-content .content .dashboard .dashboard-table .contacts .archive-contacts .value,
-.container .main-content .container-content .content .dashboard .dashboard-table .balances .balance-item .value,
-.container .main-content .container-content .content .dashboard .dashboard-table .lessons .lesson-item .value {
-    text-align: left;
-    padding-left: 5px;
+.dashboard-row .title input, .dashboard-row .title textarea {
+    font-size: 20px;
+}
+
+.item-button a.button {
+    margin-right: 5px;
+    padding: 5px 0px 5px 5px;
+}
+
+.item-button a.button:last-child {
+    margin-right: 0px;
+    padding: 5px 5px 5px 5px;
 }

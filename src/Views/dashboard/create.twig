@@ -1,0 +1,58 @@
+{# dashboard/create.twig #}
+
+{% extends 'base.twig' %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="../../public/css/dashboard.css">
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script type="text/javascript" src="../../public/js/dashboard.js"></script>
+{% endblock %}
+
+{% block content %}
+    <div class="dashboard">
+        <div class="dashboard-title col-12">Создание новости</div>
+
+        <div class="dashboard-row col-12">
+            <a href="#" class="button" id="save-button">
+                <div class="button-row">
+                    <div class="button-image">
+                        <i class="fas fa-save"></i>
+                    </div>
+                    <div class="button-text">
+                        Сохранить
+                    </div>
+                </div>
+            </a>
+        </div>
+
+        <form name="news-save" action="/admin/news/save" method="post">
+
+        <div class="dashboard-row col-12">
+            <div class="item-order col-2"></div>
+            <div class="item-body col-8">
+                <div class="row">
+                    <div class="label col-3">Заголовок</div>
+                    <div class="title col-6"><input type="text" name="title" value="" class="col-12"></div>
+                    <div class="label col-3"></div>
+                </div>
+                <div class="row">
+                    <div class="label col-3">Короткое описание</div>
+                    <div class="title col-6"><input type="text" name="description" value="" class="col-12"></div>
+                    <div class="label col-3"></div>
+                </div>
+                <div class="row">
+                    <div class="label col-3">Содержимое новости</div>
+                    <div class="title col-6"><textarea rows="5" name="value" class="col-12"></textarea></div>
+                    <div class="label col-3"></div>
+                </div>
+            </div>
+            <div class="item-button col-2"></div>
+        </div>
+
+        </form>
+    </div>
+{% endblock %}

@@ -4,8 +4,8 @@ namespace src\Controllers;
 
 use src\Models\News;
 
-require 'MainController.php';
-include __DIR__ .'/../Models/News.php';
+require_once 'MainController.php';
+require_once __DIR__ .'/../Models/News.php';
 
 class HomeController extends MainController
 {
@@ -16,26 +16,9 @@ class HomeController extends MainController
 		$this->config = $config;
 	}
 
-	private function testData()
-	{
-		return [
-			'news' => [
-				[
-					'id' => 1,
-					'title' => 'Новость 1',
-					'description' => 'происшествие 1 произошло',
-					'create_at' => '2023-04-12'
-				],
-				[
-					'id' => 2,
-					'title' => 'Новость 2',
-					'description' => 'происшествие 2 произошло',
-					'create_at' => '2023-04-13'
-				]
-			]
-		];
-	}
-
+	/**
+	 * Отображение списка новостей
+	 */
 	public function index()
 	{
 		$news = new News();
@@ -44,6 +27,9 @@ class HomeController extends MainController
 		return $this->getContent($content);
 	}
 
+	/**
+	 * Отображение выбранной новости
+	 */
 	public function show(int $id)
 	{
 		$news = new News();

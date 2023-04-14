@@ -113,36 +113,80 @@ div.row {
     text-align: left;
     font-size: 20px;
     font-weight: 600;
-    color: dimgrey;
+    color: #696969;
 }
 
 .item-body-description {
     text-align: left;
     font-size: 16px;
-    color: dimgrey;
+    color: #696969;
 }
 
 .item-body-date {
     text-align: center;
     font-size: 16px;
-    color: dimgrey;
+    color: #696969;
 }
 
 .item-body-author {
     text-align: right;
     font-size: 16px;
-    color: dimgrey;
+    color: #696969;
 }
 
 a.show-button-item {
-    color: dimgrey;
+    color: #696969;
+    border-bottom: 1px solid #696969
 }
 
 a.show-button-item:hover {
-    color: lightgreen
+    color: #90ee90;
 }
 
 .new-row {
-    border-bottom: 1px solid #cccccc;
+    border-bottom: 1px solid #696969;
+}
+
+
+
+
+a.button, a.delete-button {
+    color: #696969;
+    border: 1px solid #696969;
+    padding: 10px;
+    width: 160px;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.button-row {
+    display: flex;
+    width: 100%;
+}
+
+.button-image {
+    text-align: left;
+    margin-right: 10px;
+}
+
+.button-text {
+    flex: 1;
+    text-align: center;
+}
+
+a.button:hover {
+    color: #90ee90;
+    border: 1px solid #000000;
+    background-color: #696969;
+}
+
+a.delete-button:hover {
+    color: red;
+    border: 1px solid #000000;
+    background-color: #696969;
+}
+
+.item-body .label {
+    color: #696969;
 }
 

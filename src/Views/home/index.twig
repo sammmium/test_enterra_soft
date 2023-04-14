@@ -1,3 +1,5 @@
+{# home/index.twig #}
+
 {% extends 'base.twig' %}
 
 {% block stylesheets %}
@@ -7,10 +9,7 @@
 
 {% block javascripts %}
     {{ parent() }}
-    <script src="../../public/js/jquery-1.12.4.js"></script>
-    <script src="../../public/js/jquery-ui.js"></script>
-    <script src="../../public/js/jquery.maskedinput.min.js"></script>
-    <script src="../../public/js/dashboard.js"></script>
+    <script type="text/javascript" src="../../public/js/dashboard.js"></script>
 {% endblock %}
 
 {% block content %}
